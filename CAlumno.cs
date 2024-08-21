@@ -38,7 +38,7 @@ namespace School_payment_Administration
 
         public float DarImporteMensual()
         {
-            return cuota * (beca / 100);
+            return cuota -(cuota * (beca / 100));
         }
 
         public override string ToString()
