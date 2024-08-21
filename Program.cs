@@ -21,7 +21,7 @@ namespace School_payment_Administration
                 {
                     case 1:
 
-                        Console.WriteLine("INGRESE LA CUOTA MENSUAL !");
+                        Console.WriteLine("Ingrese el Monto de la cuota mensual !");
                         float cuota = float.Parse(Console.ReadLine());
                         CAlumno.cuota = cuota;
 
@@ -29,17 +29,19 @@ namespace School_payment_Administration
 
                     case 2:
 
-                        Console.WriteLine("INGRESE  EL NOMBRE DEL ESTUDINTE !");
+                        Console.WriteLine("INGRESE  el Nombre del Estudiante ");
                         string nombre = Console.ReadLine();
 
-                        Console.WriteLine("INGRESE  EL APELLIDO DEL ESTUDINTE !");
+                        Console.WriteLine("INGRESE  EL Apellido del Estudiante!");
                         string apellido = Console.ReadLine();
 
-                        Console.WriteLine("INGRESE  EL DESCUENTO DEL ESTUDINTE !");
+                        Console.WriteLine("INGRESE  el LEGAJO  del Estudiante!");
+                        uint legajo = uint.Parse(Console.ReadLine());
+
+                        Console.WriteLine("INGRESE  EL DESCUENTO del Estudiante !");
                         float descuento = float.Parse(Console.ReadLine());
 
-                        Console.WriteLine("INGRESE  EL LEGAJO DEL ESTUDINTE !");
-                        uint legajo = uint.Parse(Console.ReadLine());
+                        
 
                         CAlumno alumno1 = new CAlumno(nombre, apellido, descuento, legajo);
 
