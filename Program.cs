@@ -1,31 +1,70 @@
-﻿namespace School_payment_Administration
+﻿using System.Collections;
+
+namespace School_payment_Administration
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
-            Console.WriteLine("BIENVENIDO AL PAGO");
-            Console.WriteLine("INGRESE LA CUOTA MENSUAL !");
-            float cuota =float.Parse(Console.ReadLine());
-            CAlumno.cuota = cuota;
+            CInterfaz interfaz = new CInterfaz();
+            ArrayList listaDeEstudiate = new ArrayList();
+            uint option;
 
-            Console.WriteLine("INGRESE  EL NOMBRE DEL ESTUDINTE !");
-            string nombre= Console.ReadLine();
+     
 
-            Console.WriteLine("INGRESE  EL APELLIDO DEL ESTUDINTE !");
-            string apellido =  Console.ReadLine();
+            do
+            {
+                uint.TryParse(interfaz.MostrarOpcion(), out option);
 
-            Console.WriteLine("INGRESE  EL DESCUENTO DEL ESTUDINTE !");
-            float descuento = float.Parse(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
 
-            Console.WriteLine("INGRESE  EL LEGAJO DEL ESTUDINTE !");
-            uint legajo = uint.Parse(Console.ReadLine());
+                        Console.WriteLine("INGRESE LA CUOTA MENSUAL !");
+                        float cuota = float.Parse(Console.ReadLine());
+                        CAlumno.cuota = cuota;
 
-            CAlumno alumno1 = new CAlumno(nombre, apellido, descuento, legajo);
+                        break;
 
-            Console.WriteLine(alumno1.ToString());
+                    case 2:
 
-            Console.ReadLine();
+                        Console.WriteLine("INGRESE  EL NOMBRE DEL ESTUDINTE !");
+                        string nombre = Console.ReadLine();
+
+                        Console.WriteLine("INGRESE  EL APELLIDO DEL ESTUDINTE !");
+                        string apellido = Console.ReadLine();
+
+                        Console.WriteLine("INGRESE  EL DESCUENTO DEL ESTUDINTE !");
+                        float descuento = float.Parse(Console.ReadLine());
+
+                        Console.WriteLine("INGRESE  EL LEGAJO DEL ESTUDINTE !");
+                        uint legajo = uint.Parse(Console.ReadLine());
+
+                        CAlumno alumno1 = new CAlumno(nombre, apellido, descuento, legajo);
+
+                        Console.WriteLine(alumno1.ToString());
+                        listaDeEstudiate.Add(alumno1);
+                        break;
+
+                    case 3:
+
+                        Console.WriteLine("LISTA DE ESTUDIANTE");
+
+                        foreach(CAlumno alumno in listaDeEstudiate)
+                        {
+                            Console.WriteLine(alumno.ToString());
+                        }
+
+                        Console.ReadLine();
+                        break;
+                }
+
+            } while (option != 0);
+
+
+            
         }
+
     }
 }
